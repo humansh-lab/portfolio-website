@@ -3,106 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Humansh - Freelance Web Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <title>Humansh - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
-        <div class="container">
-            <h1>Humansh</h1>
-            <p>Freelance Web Developer</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <div class="logo">Humansh</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">&#9776;</div> <!-- Hamburger Menu -->
+        </nav>
     </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-card">
-                    <div class="about-icon">👨‍💻</div>
-                    <h3>Who I Am</h3>
-                    <p>Hi, I'm <strong>Humansh</strong>, a passionate freelance web developer with a focus on creating modern, responsive, and highly functional websites. I specialize in front-end development, working with technologies such as <strong>HTML5, CSS3, JavaScript, and React</strong> to bring creative ideas to life.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">🎯</div>
-                    <h3>What I Do</h3>
-                    <p>I build user-friendly, performance-optimized websites that provide excellent user experiences across all devices. Whether it's designing a new website or improving an existing one, I am dedicated to providing top-notch service and delivering results that exceed expectations.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">🚀</div>
-                    <h3>My Mission</h3>
-                    <p>My goal is to help businesses grow and connect with their audience through innovative web solutions. Feel free to reach out if you're looking for a reliable, skilled web developer to bring your ideas to life!</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Slideshow Container -->
+        <div class="slideshow">
+            <div class="slides">
+                <img src="./images/project 1 web.png" alt="Slide 1">
+                <img src="./images/project 2.png" alt="Slide 2">
+                <img src="./images/pexels-pixabay-262508.jpg" alt="Slide 3">
+                <img src="./images/project 1 web.png" alt="Slide 1"> <!-- Duplicate first image for smooth loop -->
             </div>
+        </div>
+        <div class="hero-text">
+            <h1>Hi, I'm <span>Humansh</span></h1>
+            <p>A passionate freelance web developer focused on creating modern, responsive, and highly functional websites.</p>
+            <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>Hi, I'm Humansh, a passionate freelance web developer with a focus on creating modern, responsive, and highly functional websites. I specialize in front-end development, working with technologies such as HTML5, CSS3, JavaScript, and React to bring creative ideas to life.</p>
+            <p>🎯 <strong>What I Do:</strong> I build user-friendly, performance-optimized websites that provide excellent user experiences across all devices. Whether it's designing a new website or improving an existing one, I am dedicated to providing top-notch service and delivering results that exceed expectations.</p>
+            <p>🚀 <strong>My Mission:</strong> My goal is to help businesses grow and connect with their audience through innovative web solutions. Feel free to reach out if you're looking for a reliable, skilled web developer to bring your ideas to life!</p>
             <ul>
-                <li>HTML5, CSS3, JavaScript</li>
-                <li>Responsive Web Design</li>
-                <li>VS Code</li>
-                <li>Git & GitHub</li>
-                <li>Modern Frameworks (e.g., React, Bootstrap)</li>
+                <li>🌐 Building responsive and modern websites.</li>
+                <li>💻 Proficient in HTML, CSS, JavaScript, and React.</li>
+                <li>🚀 Passionate about creating seamless user experiences.</li>
             </ul>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <!-- Restaurant Website -->
-                <div class="project">
-                    <img src="./images/project 1 web.png" alt="Restaurant Website">
-                    <h3>Restaurant Website</h3>
-                    <p>A modern and responsive restaurant website with smooth animations and an elegant UI.</p>
-                    <a href="https://restaurant-website-8bge.vercel.app/" target="_blank" class="project-btn">View Project</a>
-                </div>
-
-                <!-- E-commerce Store -->
-                <div class="project">
-                    <img src="./images/project 2.png" alt="E-commerce Store">
-                    <h3>E-commerce Store</h3>
-                    <p>A luxury e-commerce store for perfumes and fashion, featuring a modern design and seamless user experience.</p>
-                    <a href="https://ecommerce-store-olive-blond-psi.vercel.app/" target="_blank" class="project-btn">View Project</a>
-                </div>
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="./images/project 1 web.png" alt="Restaurant Website">
+                <h3>Restaurant Website</h3>
+                <p>A fully responsive restaurant website with a modern design and interactive features.</p>
+                <a href="https://restaurant-website-three-phi.vercel.app/" target="_blank">View Project</a>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="./images/project 2.png" alt="Ecommerce Store">
+                <h3>Ecommerce Store</h3>
+                <p>An ecommerce platform with product listings, a shopping cart, and secure checkout.</p>
+                <a href="https://ecommerce-store-olive-blond-psi.vercel.app/" target="_blank">View Project</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:kardamhumansh05@gmail.com">kardamhumansh05@gmail.com</a></p>
-            <p>Phone: <a href="tel:9315128228">9315128228</a></p>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Humansh. All rights reserved.</p>
-        </div>
+    <footer id="contact">
+        <p>&copy; 2023 Humansh. All rights reserved.</p>
+        <p>Contact me at <a href="mailto:kardamhumansh05@gmail.com">kardamhumansh05@gmail.com</a> or call me at <a href="tel:9315128228">9315128228</a></p>
     </footer>
 
-    <!-- JavaScript File -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
