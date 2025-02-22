@@ -14,35 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Cursor Light Effect for Mobile and Desktop
-    const cursorLight = document.createElement('div');
-    cursorLight.classList.add('cursor-light');
-    document.body.appendChild(cursorLight);
+    // Cursor Light Effect for Desktop Only
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+        const cursorLight = document.createElement('div');
+        cursorLight.classList.add('cursor-light');
+        document.body.appendChild(cursorLight);
 
-    document.addEventListener('mousemove', function(e) {
-        cursorLight.style.left = e.pageX + 'px';
-        cursorLight.style.top = e.pageY + 'px';
-    });
-
-    document.addEventListener('touchmove', function(e) {
-        const touch = e.touches[0];
-        cursorLight.style.left = touch.pageX + 'px';
-        cursorLight.style.top = touch.pageY + 'px';
-    });
-});
-document.addEventListener('DOMContentLoaded', function () {
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    
-    function showSlides() {
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1; }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 4000); // Change image every 4 seconds
+        document.addEventListener('mousemove', function(e) {
+            cursorLight.style.left = e.pageX + 'px';
+            cursorLight.style.top = e.pageY + 'px';
+        });
     }
-
-    showSlides(); // Start slideshow
 });
