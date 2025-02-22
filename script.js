@@ -13,6 +13,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         this.classList.add('active');
     });
 });
+
 window.addEventListener("scroll", () => {
     let fromTop = window.scrollY + 85; // Adjust offset
     document.querySelectorAll('nav ul li a').forEach(link => {
@@ -24,10 +25,12 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
 window.addEventListener("scroll", function() {
     let header = document.querySelector("header");
     header.classList.toggle("scrolled", window.scrollY > 50);
 });
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function () {
         document.querySelector("nav ul").classList.remove("show"); // Hide menu
