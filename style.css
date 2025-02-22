@@ -114,37 +114,28 @@ header {
 
 /* Slideshow */
 /* Slideshow */
-.slideshow {
+.slideshow-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -1;
     overflow: hidden;
 }
 
-.slides {
-    display: flex;
-    width: 400%; /* 4 slides (3 + 1 duplicate) */
-    height: 100%;
-    animation: slide 20s infinite linear; /* Smooth and consistent loop */
-}
-
-.slides img {
+.slide {
+    display: none;
     width: 100%;
     height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100vh;
     object-fit: cover;
     filter: blur(5px) brightness(0.5); /* Blurry and dark effect */
     opacity: 0.5; /* Low opacity */
-}
-
-@keyframes slide {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-100%); }
-    50% { transform: translateX(-200%); }
-    75% { transform: translateX(-300%); }
-    100% { transform: translateX(0); }
 }
 
 .hero-text {
