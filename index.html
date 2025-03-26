@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Humansh - Portfolio</title>
+    <meta name="description" content="Full-stack web developer for hire—custom websites for US, UK, and global clients, delivered fast by April 1, 2025.">
+    <title>Humansh - Full-Stack Web Developer</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -12,33 +14,35 @@
         <div class="logo">Humansh</div>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle">&#9776;</div> <!-- Hamburger Menu -->
+            <div class="menu-toggle">☰</div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <!-- Slideshow Container -->
+    <section id="home" class="hero">
         <div class="slideshow-container">
-            <div class="slide">
-                <img src="./images/project 1 web.png" alt="Slide 1">
+            <div class="slide fade">
+                <img src="./images/project 1 web.png" alt="Restaurant Website">
             </div>
-            <div class="slide">
-                <img src="./images/project 2.png" alt="Slide 2">
+            <div class="slide fade">
+                <img src="./images/project 2.png" alt="Ecommerce Store">
             </div>
-            <div class="slide">
-                <img src="./images/pexels-drew-williams-1285451-3098683.jpg" alt="Slide 3">
+            <div class="slide fade">
+                <img src="./images/pexels-drew-williams-1285451-3098683.jpg" alt="Abstract Background">
             </div>
         </div>
         <div class="hero-text">
             <h1>Hi, I'm <span>Humansh</span></h1>
-            <p>A passionate freelance web developer focused on creating modern, responsive, and highly functional websites.</p>
-            <a href="#projects" class="btn">View My Work</a>
+            <h2>Full-Stack Web Developer</h2>
+            <p>Custom websites delivered in 5 days for businesses in the US, UK, Australia, and beyond.</p>
+            <a href="#contact" class="btn">Hire Me Now</a>
+            <p class="urgency">Limited Slots—Book by March 31!</p>
         </div>
     </section>
 
@@ -46,14 +50,22 @@
     <section id="about" class="about">
         <h2>About Me</h2>
         <div class="about-content">
-            <p>Hi, I'm Humansh, a passionate freelance web developer with a focus on creating modern, responsive, and highly functional websites. I specialize in front-end development, working with technologies such as HTML5, CSS3, JavaScript, and React to bring creative ideas to life.</p>
-            <p>🎯 <strong>What I Do:</strong> I build user-friendly, performance-optimized websites that provide excellent user experiences across all devices. Whether it's designing a new website or improving an existing one, I am dedicated to providing top-notch service and delivering results that exceed expectations.</p>
-            <p>🚀 <strong>My Mission:</strong> My goal is to help businesses grow and connect with their audience through innovative web solutions. Feel free to reach out if you're looking for a reliable, skilled web developer to bring your ideas to life!</p>
-            <ul>
-                <li>🌐 Building responsive and modern websites.</li>
-                <li>💻 Proficient in HTML, CSS, JavaScript, and React.</li>
-                <li>🚀 Passionate about creating seamless user experiences.</li>
-            </ul>
+            <p>I’m Humansh, a full-stack web developer based in India, crafting modern, responsive websites for clients in the US, UK, Switzerland, Australia, Dubai, and Kuwait.</p>
+            <p>🎯 <strong>What I Do:</strong> I specialize in HTML5, CSS3, JavaScript, React, and Node.js to build high-performance solutions tailored to your needs.</p>
+            <p>🚀 <strong>My Goal:</strong> Deliver your website by April 1, 2025, with top-notch quality. Let’s grow your business together!</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">HTML5 <span class="skill-level">★★★★★</span></div>
+            <div class="skill-item">CSS3 <span class="skill-level">★★★★★</span></div>
+            <div class="skill-item">JavaScript <span class="skill-level">★★★★☆</span></div>
+            <div class="skill-item">React <span class="skill-level">★★★★☆</span></div>
+            <div class="skill-item">Node.js <span class="skill-level">★★★☆☆</span></div>
+            <div class="skill-item">Responsive Design <span class="skill-level">★★★★★</span></div>
         </div>
     </section>
 
@@ -61,30 +73,42 @@
     <section id="projects" class="projects">
         <h2>My Projects</h2>
         <div class="project-grid">
-            <!-- Project 1 -->
             <div class="project-card">
                 <img src="./images/project 1 web.png" alt="Restaurant Website">
                 <h3>Restaurant Website</h3>
-                <p>A fully responsive restaurant website with a modern design and interactive features.</p>
-                <a href="https://restaurant-website-three-phi.vercel.app/" target="_blank">View Project</a>
+                <p>Responsive design with interactive menus, built with HTML, CSS, and JS.</p>
+                <a href="https://restaurant-website-three-phi.vercel.app/" target="_blank">View Live</a>
             </div>
-            <!-- Project 2 -->
             <div class="project-card">
                 <img src="./images/project 2.png" alt="Ecommerce Store">
                 <h3>Ecommerce Store</h3>
-                <p>An ecommerce platform with product listings, a shopping cart, and secure checkout.</p>
-                <a href="https://ecommerce-store-olive-blond-psi.vercel.app/" target="_blank">View Project</a>
+                <p>Full-stack site with React and Node.js, featuring cart and checkout.</p>
+                <a href="https://ecommerce-store-olive-blond-psi.vercel.app/" target="_blank">View Live</a>
+            </div>
+            <div class="project-card">
+                <img src="./images/pexels-drew-williams-1285451-3098683.jpg" alt="Landing Page">
+                <h3>Startup Landing Page</h3>
+                <p>Conversion-driven page with React and Tailwind CSS.</p>
+                <a href="#" target="_blank">Demo (Coming Soon)</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer/Contact -->
     <footer id="contact">
-        <p>&copy; 2023 Humansh. All rights reserved.</p>
-        <p>Contact me at <a href="mailto:kardamhumansh05@gmail.com">kardamhumansh05@gmail.com</a> or call me at <a href="tel:9315128228">9315128228</a></p>
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:humansh@example.com">humansh@example.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/919315128228" target="_blank">+91 9315128228</a></p>
+        <p>Flexible for US, UK, and Gulf time zones.</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit" class="btn">Send</button>
+        </form>
+        <p>© 2025 Humansh. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
