@@ -8,13 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => nav.classList.remove('active'));
     });
 
-    const form = document.querySelector('.contact-form');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        alert('Thanks for reaching out! Our team will respond soon.');
-        form.reset();
-    });
-
     const slides = document.querySelectorAll('.slide');
     slides.forEach(slide => slide.style.display = 'block');
 });
