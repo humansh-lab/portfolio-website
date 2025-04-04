@@ -33,30 +33,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Contact form handling
-    const contactForm = document.getElementById('contact-form');
-    const formSuccess = document.getElementById('form-success');
+const contactForm = document.getElementById('contact-form');
+const formSuccess = document.getElementById('form-success');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            contactForm.style.opacity = '0.7';
-            contactForm.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
+if (contactForm) {
+    // Dynamically set FormSubmit attributes
+    contactForm.setAttribute('action', 'https://formsubmit.co/kardamhumansh05@gmail.com');
+    contactForm.setAttribute('method', 'POST');
+
+    // Add hidden fields for FormSubmit
+    const subjectField = document.createElement('input');
+    subjectField.type = 'hidden';
+    subjectField.name = '_subject';
+    subjectField.value = 'New Contact Form Message';
+    contactForm.appendChild(subjectField);
+
+    const honeyField = document.createElement('input');
+    honeyField.type = 'hidden';
+    honeyField.name = '_honey';
+    honeyField.value = '';
+    contactForm.appendChild(honeyField);
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Disable form during submission
+        contactForm.style.opacity = '0.7';
+        contactForm.style.pointerEvents = 'none';
+
+        // Get form data
+        const formData = new FormData(contactForm);
+
+        // Send form data to FormSubmit
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show success message
                 contactForm.style.opacity = '0';
                 formSuccess.style.opacity = '1';
                 formSuccess.style.pointerEvents = 'auto';
                 contactForm.reset();
-                
+
+                // Reset form after 5 seconds
                 setTimeout(() => {
                     formSuccess.style.opacity = '0';
                     formSuccess.style.pointerEvents = 'none';
                     contactForm.style.opacity = '1';
                     contactForm.style.pointerEvents = 'auto';
                 }, 5000);
-            }, 1500);
+            } else {
+                // Show error message
+                alert('Failed to send message. Please try again later.');
+                contactForm.style.opacity = '1';
+                contactForm.style.pointerEvents = 'auto';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+            contactForm.style.opacity = '1';
+            contactForm.style.pointerEvents = 'auto';
         });
-    }
+    });
+}
 
     // Scroll indicator behavior
     const scrollIndicator = document.querySelector('.scroll-indicator');
