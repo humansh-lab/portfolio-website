@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Contact form handling
+  // Contact form handling
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 
 if (contactForm) {
     // Dynamically set FormSubmit attributes
-    contactForm.setAttribute('action', 'https://formsubmit.co/kardamhumansh05@gmail.com');
+    contactForm.setAttribute('action', 'https://formsubmit.co/humanshkardam05@gmail.com');
     contactForm.setAttribute('method', 'POST');
 
     // Add hidden fields for FormSubmit
@@ -54,56 +54,44 @@ if (contactForm) {
     honeyField.value = '';
     contactForm.appendChild(honeyField);
 
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    // Add a hidden field for redirect URL
+    const nextField = document.createElement('input');
+    nextField.type = 'hidden';
+    nextField.name = '_next';
+    nextField.value = window.location.href + '?success=true#contact';
+    contactForm.appendChild(nextField);
 
+    // Log to confirm attributes are set
+    console.log('Form Action:', contactForm.getAttribute('action'));
+    console.log('Form Method:', contactForm.getAttribute('method'));
+
+    // Check for success query parameter to show success message
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        contactForm.style.opacity = '0';
+        formSuccess.style.opacity = '1';
+        formSuccess.style.pointerEvents = 'auto';
+        contactForm.reset();
+
+        // Reset form after 5 seconds
+        setTimeout(() => {
+            formSuccess.style.opacity = '0';
+            formSuccess.style.pointerEvents = 'none';
+            contactForm.style.opacity = '1';
+            contactForm.style.pointerEvents = 'auto';
+            // Remove the success query parameter from the URL
+            window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+        }, 5000);
+    }
+
+    contactForm.addEventListener('submit', (e) => {
         // Disable form during submission
         contactForm.style.opacity = '0.7';
         contactForm.style.pointerEvents = 'none';
-
-        // Get form data
-        const formData = new FormData(contactForm);
-
-        // Send form data to FormSubmit
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Show success message
-                contactForm.style.opacity = '0';
-                formSuccess.style.opacity = '1';
-                formSuccess.style.pointerEvents = 'auto';
-                contactForm.reset();
-
-                // Reset form after 5 seconds
-                setTimeout(() => {
-                    formSuccess.style.opacity = '0';
-                    formSuccess.style.pointerEvents = 'none';
-                    contactForm.style.opacity = '1';
-                    contactForm.style.pointerEvents = 'auto';
-                }, 5000);
-            } else {
-                // Show error message
-                alert('Failed to send message. Please try again later.');
-                contactForm.style.opacity = '1';
-                contactForm.style.pointerEvents = 'auto';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again later.');
-            contactForm.style.opacity = '1';
-            contactForm.style.pointerEvents = 'auto';
-        });
+        // Let the form submit directly to FormSubmit
+        // The redirect will handle the success message
     });
 }
-
     // Scroll indicator behavior
     const scrollIndicator = document.querySelector('.scroll-indicator');
     let lastScrollPosition = 0;
