@@ -32,66 +32,51 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-  // Contact form handling
+ // Contact form handling with Web3Forms
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 
 if (contactForm) {
-    // Dynamically set FormSubmit attributes
-    contactForm.setAttribute('action', 'https://formsubmit.co/humanshkardam05@gmail.com');
-    contactForm.setAttribute('method', 'POST');
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    // Add hidden fields for FormSubmit
-    const subjectField = document.createElement('input');
-    subjectField.type = 'hidden';
-    subjectField.name = '_subject';
-    subjectField.value = 'New Contact Form Message';
-    contactForm.appendChild(subjectField);
-
-    const honeyField = document.createElement('input');
-    honeyField.type = 'hidden';
-    honeyField.name = '_honey';
-    honeyField.value = '';
-    contactForm.appendChild(honeyField);
-
-    // Add a hidden field for redirect URL
-    const nextField = document.createElement('input');
-    nextField.type = 'hidden';
-    nextField.name = '_next';
-    nextField.value = window.location.href + '?success=true#contact';
-    contactForm.appendChild(nextField);
-
-    // Log to confirm attributes are set
-    console.log('Form Action:', contactForm.getAttribute('action'));
-    console.log('Form Method:', contactForm.getAttribute('method'));
-
-    // Check for success query parameter to show success message
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        contactForm.style.opacity = '0';
-        formSuccess.style.opacity = '1';
-        formSuccess.style.pointerEvents = 'auto';
-        contactForm.reset();
-
-        // Reset form after 5 seconds
-        setTimeout(() => {
-            formSuccess.style.opacity = '0';
-            formSuccess.style.pointerEvents = 'none';
-            contactForm.style.opacity = '1';
-            contactForm.style.pointerEvents = 'auto';
-            // Remove the success query parameter from the URL
-            window.history.replaceState({}, document.title, window.location.pathname + '#contact');
-        }, 5000);
-    }
-
-    contactForm.addEventListener('submit', (e) => {
-        // Disable form during submission
         contactForm.style.opacity = '0.7';
         contactForm.style.pointerEvents = 'none';
-        // Let the form submit directly to FormSubmit
-        // The redirect will handle the success message
+
+        const formData = new FormData(contactForm);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                contactForm.reset();
+                contactForm.style.opacity = '0';
+                formSuccess.style.opacity = '1';
+                formSuccess.style.pointerEvents = 'auto';
+
+                setTimeout(() => {
+                    formSuccess.style.opacity = '0';
+                    formSuccess.style.pointerEvents = 'none';
+                    contactForm.style.opacity = '1';
+                    contactForm.style.pointerEvents = 'auto';
+                }, 5000);
+            } else {
+                alert("Something went wrong. Please try again.");
+                contactForm.style.opacity = '1';
+                contactForm.style.pointerEvents = 'auto';
+            }
+        } catch (error) {
+            alert("An error occurred. Please check your internet or try again.");
+            contactForm.style.opacity = '1';
+            contactForm.style.pointerEvents = 'auto';
+        }
     });
 }
+
     // Scroll indicator behavior
     const scrollIndicator = document.querySelector('.scroll-indicator');
     let lastScrollPosition = 0;
