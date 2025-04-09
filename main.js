@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
- // Contact form handling with Web3Forms
+ // Contact form handling with Formspree
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 
@@ -46,13 +46,15 @@ if (contactForm) {
         const formData = new FormData(contactForm);
 
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
+            const response = await fetch("https://formspree.io/f/maneanoq", {
                 method: "POST",
+                headers: {
+                    'Accept': 'application/json'
+                },
                 body: formData
             });
 
-            const result = await response.json();
-            if (result.success) {
+            if (response.ok) {
                 contactForm.reset();
                 contactForm.style.opacity = '0';
                 formSuccess.style.opacity = '1';
@@ -76,6 +78,7 @@ if (contactForm) {
         }
     });
 }
+
 
     // Scroll indicator behavior
     const scrollIndicator = document.querySelector('.scroll-indicator');
